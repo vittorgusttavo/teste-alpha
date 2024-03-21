@@ -1,0 +1,24 @@
+{
+    "name": "victor/teste-pratico-alpha",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/",
+            "tests\\": "tests/"
+        },
+        "files": [
+            "app/util/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "vittorgusttavo",
+            "email": "victorgustavo08@hotmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    }
+}

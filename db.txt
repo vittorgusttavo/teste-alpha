@@ -1,0 +1,31 @@
+-- -----------------------------------------------------
+-- Schema teste_pratico_alpha
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `teste_pratico_alpha` DEFAULT CHARACTER SET latin1 ;
+USE `teste_pratico_alpha` ;
+
+-- -----------------------------------------------------
+-- Table `teste_pratico_alpha`.`categorias`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `teste_pratico_alpha`.`categorias` (
+  `rowid` INT(11) NOT NULL AUTO_INCREMENT,
+  `codigo` INT(10) NOT NULL,
+  `descricao` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`rowid`))
+
+
+-- -----------------------------------------------------
+-- Table `teste_pratico_alpha`.`produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `teste_pratico_alpha`.`produtos` (
+  `rowid` INT(11) NOT NULL AUTO_INCREMENT,
+  `codigo` INT(10) NOT NULL,
+  `descricao` VARCHAR(150) NOT NULL,
+  `preco_unitario` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  `categoriaid` INT(11) NOT NULL,
+  PRIMARY KEY (`rowid`),
+  UNIQUE INDEX `descricao` (`descricao` ASC) VISIBLE,
+  INDEX `categoriaid` (`categoriaid` ASC) VISIBLE,
+  CONSTRAINT `produtos_ibfk_1`
+    FOREIGN KEY (`categoriaid`)
+    REFERENCES `teste_pratico_alpha`.`categorias` (`rowid`))
